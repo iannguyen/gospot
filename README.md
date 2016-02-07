@@ -2,13 +2,14 @@
 
 [Live][site]
 [site]: http://thegospot.herokuapp.com/
-[csgolounge]: http://csoglounge.com
 
 ![screenshot]
 
 [screenshot]: ./images/gospot.gif
 
-GOSpot is a web application inspired by [csgolounge][csoglounge], where users can bet their virtual in-game items on professional matches.
+GOSpot is a web application inspired by [csgolounge][csgolounge], where users can bet their virtual in-game items on professional matches.
+
+[csgolounge]: http://csgolounge.com
 
 ### Features
 
