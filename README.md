@@ -24,3 +24,8 @@ GOSpot is a web application inspired by [csgolounge][csgolounge], where users ca
 - Custom scheduled `rake` tasks start matches, deposit winnings in the users profile, and re-seed random bets and items everyday.
 
 ### Code Spotlight
+
+
+##### The Bin-Packing/Coin-Change Algorithm
+
+[distribute]: ./images/distribute.png
