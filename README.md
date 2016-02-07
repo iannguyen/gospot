@@ -25,7 +25,14 @@ GOSpot is a web application inspired by [csgolounge][csgolounge], where users ca
 
 ### Code Spotlight
 
-
 ##### The Bin-Packing/Coin-Change Algorithm
 
+![winner_returns]
+![distribute]
+
+[winner_returns]: ./images/winner_returns.png
 [distribute]: ./images/distribute.png
+
+- When a match is over, it starts by first creating `Payout` models for all the winners, initialized by returning the initial bets and items each `winner` made
+- Along with the `Payout` models, `profits` are calculated and sorted in descending order, insuring that users with the highest bets are prioritized
+- All the items betted on the losing team are collected and placed into the `PayoutTable` model, along with `Payout` and `profits` of each user, and the site `rake` amount.
