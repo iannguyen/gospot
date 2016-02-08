@@ -41,7 +41,7 @@ GOSpot is a web application inspired by [csgolounge][csgolounge], where users ca
 
 [initialize]: ./images/initialize.png
 
-- When the `PayoutTable` model initializes, it generates the `@skins_hash` (a frequency hash), and the `@bp_table`
+- When the `PayoutTable` model initializes, it generates the `@skins_hash` (a frequency hash), and the `@bp_table`.
 
 ![bp_table]
 
@@ -49,16 +49,16 @@ GOSpot is a web application inspired by [csgolounge][csgolounge], where users ca
 
 Here is a preview of the `@bp_table` calculation.
 
-- The `@bp_table` takes the `@max` profit and iterates from 1..@max, and iterates through the keys from the `@skins_hash` as the available distributable items.
-- Through dynamic programming, it generates values for two arrays, the `item_count`, and `last_item` array, where the indices of the arrays represent the $ amount, and the value of the `item_count` and `last_item` arrays represent the optimal number of items, and the last item used to make change for that amount respectively.
-- In the case that the `price` of the current item is between the current `amt` and `amt + 10%`, an `overpay` is allowed to allow other items to be distributed, and the winner to receive one item of high value. A `standard deviation` was used originally but was replaced by a fixed percentage.
-- By sacrificing memory for time, the average is an O(n*k) time complexity solution. Where `n` represents the max profit amount, and `k` represents the unique number of items.
+- The `@bp_table` takes the `@max` profit and iterates from 1..@max, and iterates through the keys from the `@skins_hash` as the available distributable items
+- Through dynamic programming, it generates values for two arrays, the `item_count`, and `last_item` array, where the indices of the arrays represent the $ amount, and the value of the `item_count` and `last_item` arrays represent the optimal number of items, and the last item used to make change for that amount respectively
+- In the case that the `price` of the current item is between the current `amt` and `amt + 10%`, an `overpay` is allowed to allow other items to be distributed, and the winner to receive one item of high value. A `standard deviation` was used originally but was replaced by a fixed percentage
+- By sacrificing space for time, the average is an O(n*k) time complexity solution. Where `n` represents the max profit amount, and `k` represents the unique number of items.
 
 ![cashout]
 
 [cashout]: ./images/cashout.png
 
-- For each of the winning profits, `cashout` is called. `Cashout` finds the optimal collection of items for the amount by reading the values generated in the `@bp_table`and deducts the respective item from the `@skins_hash`.
+- For each of the winning profits, `cashout` is called. `Cashout` finds the optimal collection of items for the amount by reading the values generated in the `@bp_table`and deducts the respective item from the `@skins_hash`
 - While iterating through the optimal payout, if the `@skins_hash` doesn't have the necessary item, the `@bp_table` is recalculated, but not with the original `@max` profit. Every time an item is deducted from the current payout, the `@max` gets updated to the maximum of the current `remaining` amount, or the `next` profit, insuring that the the `@bp_table` doesn't compute values that have already been computed.
 
 ### ToDo
