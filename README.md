@@ -63,6 +63,6 @@ Here is a preview of the `@bp_table` calculation.
 
 ### ToDo
 
-- [ ] Add projected payout amounts at the time of placing a bet.
-- [ ] Have the payout odds persist after the match is over.
+- [ ] Add projected payout amounts at the time of placing a bet
+- [ ] Have the payout odds persist after the match is over
 - [ ] Add match history
