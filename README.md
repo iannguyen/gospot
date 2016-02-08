@@ -41,4 +41,13 @@ GOSpot is a web application inspired by [csgolounge][csgolounge], where users ca
 
 [initialize]: ./images/initialize.png
 
-- When the `PayoutTable` model initializes, it generates 
+- When the `PayoutTable` model initializes, it generates the `@skins_hash` (a frequency hash), and the `@bp_table`
+- The `@bp_table` takes the `@max` profit and iterates from 1..@max, and iterates through the keys from the `@skins_hash` as the available distributable items.
+- Through dynamic programming, it generates two arrays, the `item_count`, and `last_item` array, where the indices of the arrays represent the $ amount, and the value of the `item_count` and `last_item` arrays represent the optimal number of items, and the last item used to make change for that amount respectively.
+
+![cashout]
+
+[cashout]: ./images/cashout.png
+
+- For each of the winning profits, `cashout` is called. `Cashout` finds the optimal payout for for the amount through the values generated in the `@bp_table`and deducts the respective item from the `@skins_hash`.
+- While iterating through the optimal payout, if the `@skins_hash` doesn't have the necessary item, the `@bp_table` is recalculated, but not with the original `@max` profit. Every time an item is deducted from the current payout, the `@max` gets updated to the maximum of the current `remaining` profit, or the `next` profit, insuring that the the `@bp_table` doesn't compute values that have already been computed.
