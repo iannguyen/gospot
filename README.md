@@ -60,3 +60,9 @@ Here is a preview of the `@bp_table` calculation.
 
 - For each of the winning profits, `cashout` is called. `Cashout` finds the optimal collection of items for the amount by reading the values generated in the `@bp_table`and deducts the respective item from the `@skins_hash`.
 - While iterating through the optimal payout, if the `@skins_hash` doesn't have the necessary item, the `@bp_table` is recalculated, but not with the original `@max` profit. Every time an item is deducted from the current payout, the `@max` gets updated to the maximum of the current `remaining` amount, or the `next` profit, insuring that the the `@bp_table` doesn't compute values that have already been computed.
+
+### ToDo
+
+- [ ] Add projected payout amounts at the time of placing a bet.
+- [ ] Have the payout odds persist after the match is over.
+- [ ] Add match history
