@@ -49,5 +49,13 @@ GOSpot is a web application inspired by [csgolounge][csgolounge], where users ca
 
 [cashout]: ./images/cashout.png
 
-- For each of the winning profits, `cashout` is called. `Cashout` finds the optimal payout for for the amount through the values generated in the `@bp_table`and deducts the respective item from the `@skins_hash`.
-- While iterating through the optimal payout, if the `@skins_hash` doesn't have the necessary item, the `@bp_table` is recalculated, but not with the original `@max` profit. Every time an item is deducted from the current payout, the `@max` gets updated to the maximum of the current `remaining` profit, or the `next` profit, insuring that the the `@bp_table` doesn't compute values that have already been computed.
+- For each of the winning profits, `cashout` is called. `Cashout` finds the optimal collection of items for the amount by reading the values generated in the `@bp_table`and deducts the respective item from the `@skins_hash`.
+- While iterating through the optimal payout, if the `@skins_hash` doesn't have the necessary item, the `@bp_table` is recalculated, but not with the original `@max` profit. Every time an item is deducted from the current payout, the `@max` gets updated to the maximum of the current `remaining` amount, or the `next` profit, insuring that the the `@bp_table` doesn't compute values that have already been computed.
+
+![bp_table]
+
+[bp_table]: ./images/bp_table.png
+
+Here is a preview of the `@bp_table` calculation.
+
+- By sacrificing memory for time, the average is an O(n*k) time complexity solution. Where `n` represents the max profit amount, and `k` represents the unique number of items.
