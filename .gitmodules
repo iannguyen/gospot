@@ -1,0 +1,6 @@
+[submodule "gospot-back"]
+	path = gospot-back
+	url = https://github.com/iannguyen/gospot-back.git
+[submodule "gospot-front"]
+	path = gospot-front
+	url = https://github.com/iannguyen/gospot-front.git
