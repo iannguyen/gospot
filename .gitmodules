@@ -1,6 +1,6 @@
-[submodule "gospot-back"]
-	path = gospot-back
-	url = https://github.com/iannguyen/gospot-back.git
-[submodule "gospot-front"]
-	path = gospot-front
-	url = https://github.com/iannguyen/gospot-front.git
+[submodule "rails-back"]
+	path = rails-back
+	url = https://github.com/iannguyen/rails-back-gospot.git
+[submodule "ember-front"]
+	path = ember-front
+	url = https://github.com/iannguyen/ember-front-gospot.git
